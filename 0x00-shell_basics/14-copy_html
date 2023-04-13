@@ -1,2 +1,2 @@
 #!/bin/bash 
-rsync -aup --include="*.html" --execlude="*" ./ ../
+rsync -aup --include="*.html" --exclude="*" ./ ../

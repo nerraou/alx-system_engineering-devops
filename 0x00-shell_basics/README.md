@@ -5,3 +5,4 @@ LEARN SHELL BASICS:
  mkdir: create diretory
  mv: rename/move file or directory
  rm: delete
+ rsync: synchronize two folders
