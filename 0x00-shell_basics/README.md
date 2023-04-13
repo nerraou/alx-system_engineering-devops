@@ -1,1 +1,3 @@
-THIS is a readme
+LEARN SHELL BASICS:
+ pwd: get the current directory
+ ls: Display the content list of your current directory
