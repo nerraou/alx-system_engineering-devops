@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $((x=$TRUEKNOWLEDGE, y=128, x+y))
