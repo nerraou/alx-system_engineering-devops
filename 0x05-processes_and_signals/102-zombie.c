@@ -2,6 +2,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * infinite_while - infinite while
@@ -26,17 +27,14 @@ int main(void)
 	pid_t pid;
 	int i;
 
-	pid = fork();
-	for (i = 1; i <= 4; i++)
+	for (i = 1; i <= 5; i++)
 	{
-		if (pid != 0)
-		{
+		pid = fork();
+		if (pid > 0)
 			printf("Zombie process created, PID: %d\n", pid);
-			pid = fork();
-		}
+		else
+			exit(0);
 	}
-	if (pid != 0)
-		printf("Zombie process created, PID: %d\n", pid);
 	infinite_while();
 	return (0);
 }
