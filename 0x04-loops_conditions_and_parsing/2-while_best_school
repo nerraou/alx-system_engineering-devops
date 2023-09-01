@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# this is a bash script that print best school 10 times use while
+
+a=1
+while [ $a -lt 11 ];
+do
+echo "Best School"
+((a++))
+done
