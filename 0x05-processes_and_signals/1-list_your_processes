@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# print process id
+ps -w -w aux --forest
