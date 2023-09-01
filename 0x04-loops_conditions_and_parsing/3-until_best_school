@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# this is a bash script that print best school 10 times use until
+
+a=1
+until [ $a -eq 11 ]
+do
+echo "Best School"
+((a++))
+done
