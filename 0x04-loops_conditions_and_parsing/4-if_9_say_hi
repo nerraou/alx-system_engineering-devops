@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# this is a bash script that print best school 10 and hi  times use while
+
+a=1
+while [ $a -lt 11 ]
+do
+	if [ $a = 9 ]
+	then
+		echo "hi"
+	else
+		echo "Best School"
+	fi
+((a++))
+done
