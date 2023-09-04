@@ -2,9 +2,15 @@
 # print 12 hour with it min
 
 a=0
-while [ $a -lt 13 ]
+j=1
+while [ $a -le 12 ]
 do
-echo "Hour: $a"
-	seq 1 59
+	echo "Hour: $a"
+	j=1
+	while [ $j -le 59 ]
+	do
+		echo "$j"
+		((j++))
+	done
 ((a++))
 done
