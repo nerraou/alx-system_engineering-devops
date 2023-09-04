@@ -1,16 +1,10 @@
 #!/usr/bin/env bash
-#Display the time for 12 hours and 59 minutes
+# print 12 hour with it min
 
 a=0
-j=1
 while [ $a -le 12 ]
 do
 	echo "Hour: $a"
-	j=1
-	while [ $j -le 59 ]
-	do
-		echo "$j"
-		((j++))
-	done
+	seq 1 59
 ((a++))
 done
