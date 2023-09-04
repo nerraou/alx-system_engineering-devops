@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# display names after first dash
+
+files=$(ls -1)
+for file in $files
+do
+	echo "$file" | cut -d'-' -f2
+done
