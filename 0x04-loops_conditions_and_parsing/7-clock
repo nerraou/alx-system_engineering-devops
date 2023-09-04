@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# print 12 hour with it min
+
+a=0
+while [ $a -lt 13 ]
+do
+echo "Hour: $a"
+	seq 1 59
+((a++))
+done
