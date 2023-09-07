@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# list listenings sockets
 netstat -l --programs
