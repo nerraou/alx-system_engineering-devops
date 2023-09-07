@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# change your home IP
+tmp_hosts_file="/tmp/hosts.tmp"
+cp /etc/hosts "$tmp_hosts_file"
+sed -i s/^127.0.0.*$/127.0.0.2\\tlocalhost/ "$tmp_hosts_file"
+echo -e "8.8.8.8\tfacebook.com" >> "$tmp_hosts_file"
+cp -f "$tmp_hosts_file" /etc/hosts
