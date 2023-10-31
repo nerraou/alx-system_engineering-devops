@@ -14,4 +14,4 @@ ip=$2
 username=$3
 private_key=$4
 
-scp -i "$private_key" "$file_path" "$username@$ip:~/"
+scp -o StrictHostKeyChecking=no -i "$private_key" "$file_path" "$username@$ip:~/"
