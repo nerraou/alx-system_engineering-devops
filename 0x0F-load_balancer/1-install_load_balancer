@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#install loader balancer
+
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+
+echo '
+frontend nerraou.tech
+        bind 0:80
+        default_backend web_servers
+
+backend web_servers
+        balance roundrobin
+        server 411747-web-01 100.24.237.103:80 check
+        server 411747-web-02 54.175.189.210:80 check
+' | sudo tee /etc/haproxy/haproxy.cfg  > /dev/null
+
+sudo service haproxy restart
