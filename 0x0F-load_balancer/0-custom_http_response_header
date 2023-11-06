@@ -1,6 +1,37 @@
 #!/usr/bin/env bash
-# setup server
-sudo apt-get update -y
-sudo apt-get install -y nginx
-sudo sed -i "/server {/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
+# configure web server
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html > /dev/null
+
+nginx_config=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name _;
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	add_header X-Served-By \$hostname;
+
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+
+	if (\$request_filename ~ redirect_me){
+		rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+	}
+
+	error_page 404 /404.html;
+	location = /404.html {
+		internal;
+	}
+}
+"
+
+echo -n "$nginx_config" | sudo tee /etc/nginx/sites-enabled/default > /dev/null
 sudo service nginx restart
