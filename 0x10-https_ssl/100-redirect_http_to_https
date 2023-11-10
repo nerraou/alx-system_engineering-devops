@@ -1,0 +1,11 @@
+frontend nerraou.tech
+        bind 0:80
+        bind *:443 ssl crt /etc/letsencrypt/live/www.nerraou.tech/nerraoucert.pem
+        default_backend web_servers
+
+        http-request redirect scheme https code 301 unless { ssl_fc }
+
+backend web_servers
+        balance roundrobin
+        server 411747-web-01 100.24.237.103:80 check
+        server 411747-web-02 54.175.189.210:80 check
