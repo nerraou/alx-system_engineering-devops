@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# setup nginx user
+useradd -s /bin/false nginx
+sed -i 's/^user .*;/user nginx;/' /etc/nginx/nginx.conf
+sed -i 's/80 default_server;/8080 default_server;/' /etc/nginx/sites-available/default
