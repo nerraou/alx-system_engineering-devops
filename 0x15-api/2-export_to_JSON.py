@@ -15,6 +15,11 @@ def create_todo(todo, username):
     }
 
 
+def predicate(todo, userId):
+    """is user owner of todo"""
+    return todo.get("userId") == userId
+
+
 if __name__ == "__main__":
     import requests
     import sys
@@ -32,7 +37,8 @@ if __name__ == "__main__":
 
     filename = "{}.json".format(userId)
     with open(filename, 'w', newline='') as file:
-        tasks = map(lambda todo: create_todo(todo, username), todos.json())
+        filtred_todos = filter(lambda x: predicate(x, userId), todos.json())
+        tasks = map(lambda todo: create_todo(todo, username), filtred_todos)
         data = {}
         data[userId] = list(tasks)
         json.dump(data, file)
