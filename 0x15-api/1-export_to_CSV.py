@@ -20,7 +20,10 @@ if __name__ == "__main__":
 
     filename = "{}.csv".format(userId)
     with open(filename, 'w', newline='') as file:
-        writer = csv.writer(file, delimiter=',', quoting=csv.QUOTE_ALL)
+        writer = csv.writer(file,
+                            delimiter=',',
+                            lineterminator='\n',
+                            quoting=csv.QUOTE_ALL)
         for task in todos.json():
             if task.get('userId') == userId:
                 row = [userId,
