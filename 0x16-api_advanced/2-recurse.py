@@ -8,7 +8,7 @@ from requests import get
 
 def recurse(subreddit, hot_list=[], after=""):
     if subreddit is None or not isinstance(subreddit, str):
-        return 0
+        return (None)
     res = get(
           "https://www.reddit.com/r/{}/hot.json".format(subreddit),
           headers={"User-Agent": "nerraou"},
@@ -26,4 +26,4 @@ def recurse(subreddit, hot_list=[], after=""):
         else:
             return recurse(subreddit, hot_list, after)
     else:
-        print(None)
+        return(None)
