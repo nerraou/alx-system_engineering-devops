@@ -7,7 +7,7 @@ exec { 'nginx set max open files':
 }
 
 # Restart Nginx
-exec { 'restart nginx':
+-> exec { 'restart nginx':
   command => 'nginx restart',
   path    => '/etc/init.d/'
 }
